@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNewCampaign(t *testing.T) {
+func Test_NewCampaign_CreateCampaign(t *testing.T) {
 	assert := assert.New(t)
 	name := "Campaign X"
 	content := "Body"
@@ -14,8 +14,9 @@ func TestNewCampaign(t *testing.T) {
 
 	campaign := NewCampaign(name, content, contacts)
 
-	assert.Equal(campaign.Id, "1")
+	assert.NotNil(campaign.Id)
 	assert.Equal(campaign.Name, name)
 	assert.Equal(campaign.Content, content)
 	assert.Equal(len(campaign.Contacts), len(contacts))
+	assert.NotNil(campaign.CreatedOn)
 }
